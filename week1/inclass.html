@@ -21,59 +21,80 @@
         .topnav {
             background-color: #FFFFFF;
             overflow: hidden;
-            width: 100%; /* Ensures the nav stretches across the full width */
-            position: fixed; /* Keeps the nav bar at the top */
+            width: 100%;
+            position: fixed;
             top: 0;
             height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
         .topnav a {
-            float: none;
             color: #000000;
             text-align: center;
-            padding: 14px 16px;
-            padding-top: 10px;
+            padding: 10px 16px;
             text-decoration: none;
             font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
         }
+
         .topnav a:hover {
             background-color: #ddd;
             color: black;
         }
+
         .topnav a.active {
             background-color: #ffb85c;
             color: white;
-            height: 40px;
         }
 
         header {
             width: 100%;
             text-align: center;
             padding: 1rem 0;
-            margin-top: 50px; /* Push content below the nav */
+            margin-top: 60px;
         }
+
         h1 {
             font-size: 3rem;
             margin: 0;
         }
+
         h2 {
             font-size: 1.5rem;
             margin: 0.5rem 0;
         }
+
         h3 {
             margin-bottom: 1rem;
         }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffb85c;
+        }
+
         .content-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2rem;
-            margin-top: 200px; /* Creates space below the header */
+            margin-top: 30px; /* Reduced from 200px to 100px */
         }
+
         .content-item {
             text-align: center;
+            max-width: 60%;
         }
+
         .content-item img {
-            max-width: 100%;
+            max-width: 60%100;
             height: auto;
             margin-bottom: 1rem;
         }
@@ -94,25 +115,57 @@
         <h1>Kludging</h1>
         <h2>Creative Tech, Weeks 1-3</h2>
         <h3>Shirley Piotrowski, Fall 2024</h3>
-        <h3><a href="https://miro.com/app/board/uXjVLfUFsOw=" target="_blank" style="color: white;">Link to my Miro board</a></h3>
+        <h3><a href="https://miro.com/app/board/uXjVLfUFsOw=" target="_blank">Link to my Miro board</a></h3>
     </header>
 
     <div class="content-container">
         <div class="content-item">
-            <p>Reference</p>
-            <p><a href="https://www.instagram.com/reel/C_gCvc5N_vq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" style="color: white;">Link to the work I'm referencing</a></p>
-            <img src="PauricFreeman.gif" alt="Image 1">
-            week1/PauricFreeman.gif
-            <p>Pauric Freeman</p>
+            <h3>Reference</h3>
+            <p><a href="https://www.instagram.com/reel/C_gCvc5N_vq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">Link to the work I'm referencing</a></p>
+            <img src="PauricFreeman.gif" alt="Image 1" width="300">
         </div>
         <div class="content-item">
-            <img src="image2.jpg" alt="Image 2">
+            <p>Diagrams</p>
+            <img src="Diagram1.jpeg" alt="Image 2" width="300px">
+            <img src="Diagram2.jpeg" alt="Image 2" width="300px">
             <p>Text for image 2</p>
         </div>
         <div class="content-item">
-            <img src="image3.jpg" alt="Image 3">
-            <p>Text for image 3</p>
+            <img src="Cube2.jpg" alt="Image 2" width="300px">
+            <img src="Cube3.JPG" alt="Image 3" width="300px">
+            <p>Create a cube with a wireframe MAT that some of our visual elements will exist inside of.
+                Use Noise TOPs (using default sparse for now) with different seeds to animate the rotation of the cube (Later these rotations will be controlled by audio) 2</p>
         </div>
+        <div class="content-item">
+            <img src="Cube4.JPG" alt="Image 3" width="300px">
+            <p>Cube set up is looking quite nice... Not perfect but it'll do. Now lets get into this strange 'blob wireframe' shape
+                Using a sphere chop with noise
+                Added a wireframe with a nice orange color. We'll let that noise run as is for now, but in the future will control its shape with audio
+                Use an over top to put the sphere over the cube... looks like this:</p>
+        </div>
+        <div class="content-item">
+            <img src="Cube5.JPG" alt="Image 2" width="300px">
+            <p>Our blob needs some work but I'm jumping into some 2D elements.
+                Next I'm adding some text TOPs to put in that flashing typography he's got going. Need to randomize the location and overlays of the type
+                Set up: each letter (S-H-I-R-L) is put twice, each time with different location. One set of letters stays still, while the other's location is randomized with a noise chop. Used a comp CHOP with the 'multiply' setting to get the cut out effect</p>
+        </div>
+        <div class="content-item">
+            <img src="Cube6.JPG" alt="Image 2" width="300px">
+            <p>Next I added the vignette effect! Pretty simple - used  ramp CHOP with the type set to 'circular'. Used some random noise to change its texture, and change the color so it was red and turned down the alpha on the inside color so it is transparent. Used an over TOP to overlay it.</p>
+        </div>
+        <div class="content-item">
+            <img src="Cube7.JPG" alt="Image 2" width="300px">
+            <p>Opened Ableton and made a lil' tracky track (spent way too much time on this and it sounds so wack)</p>
+        </div>
+        <div class="content-item">
+                <img src="Cube8.JPG" alt="Image 2" width="300px">
+                <p>Used this cam sequencer from Function Store to get that nice camera animation</p>
+                <p><a href="https://www.patreon.com/posts/camsequencer-and-81712029" target="_blank">Link to the cam sequencer</a></p>
+            </div>
+         <div class="content-item"></div>
+                <img src="Cube9.JPG" alt="Image 2" width="300px">
+                <p>Next I added the blue 'pattern' that appears on the cube and also flashes as a 2D overlay. I just used an animated noise texture as the color map for a constant MAT.</p>
+            </div>
     </div>
 
 </body>
