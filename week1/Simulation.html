@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirls Website</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation Styles */
+        .topnav {
+            background-color: #FFFFFF;
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .topnav a {
+            color: #000000;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: none;
+            color: black;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffb85c;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 30px; /* Reduced from 200px to 100px */
+        }
+
+        .content-item {
+            text-align: center;
+            max-width: 50%;
+        }
+
+        .content-item2 {
+            text-align: center;
+            max-width: 50%;
+            padding-bottom: 100px;
+        }
+
+        .content-item img {
+            max-width: 60%100;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <div class="topnav">
+        <a class="active" href="Kludging.html">Kludging</a>
+        <a href="simulation.html">Simulation</a>
+        <a href="#Synthetic">Synthetic</a>
+        <a href="#Codependent">Codependent</a>
+        <a href="#Materialities">Materialities</a>
+    </div>
+
+    <header>
+        <h1>Simulation</h1>
+        <h2>Creative Tech, Weeks 3-5</h2>
+        <h3>Shirley Piotrowski, Fall 2024</h3>
+        <h3><a href="https://miro.com/app/board/uXjVLfUFsOw=" target="_blank">Link to my Miro board</a></h3>
+    </header>
+
+    <div class="content-container">
+        <div class="content-item">
+            <h3>"Drying"</h3>
+            <p>For the first week I'm focusing on 1. what is 'drying' and 2. How do I want to represent it? 3. What tool/software would best show this?</p>
+            <p>I did some diving into examples of drying and its relation to climate change. I thought I would do something with changing water levels... But what caught my eye was the physics of what 'drying' actually is.</p>
+            <p>I know next to nothing about physics/chemistry... But my basic understanding is that as a heat source gets closer to liquid, the 'heat' causes the particles to move faster and faster, eventually seperating them and causing them to spread up into the air.</p>
+            <p>Here is a diagram (from a literal children's website) explaining the concept:</p>
+            <img src="EvaporationPhysics.JPG" alt="Image 2" width="300px">
+        </div>
+        <div class="content-item">
+            <h3>Documentation</h3>
+            <img src="Simulation1.gif" alt="Image 2" width="300px">
+            <p>I'm starting out in p5.js to do a simplified version of the physics of evaporation</p>
+            <p>My first attempt has an orange circle representing 'heat', and a couple white particles, representing 'liquid'</p>
+            <p>As the heat source gets closer to the particles (controlled by my mouse) the particles begin to shake and move more and more</p>
+        </div>
+        <div class="content-item">
+            <img src="Simulation2.gif" alt="Image 2" width="300px">
+            <p>I wanted to really simulate not just the particles moving, but the actual evaporation. I added floatSpeed to make the particles not only shake, but float away up into the air when the heat source gets closer</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
