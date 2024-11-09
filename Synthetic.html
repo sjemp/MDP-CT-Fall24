@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirls Website</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation Styles */
+        .topnav {
+            background-color: #FFFFFF;
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .topnav a {
+            color: #000000;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: none;
+            color: black;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 60px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffb85c;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 30px; /* Reduced from 200px to 100px */
+        }
+
+        .content-item {
+            text-align: center;
+            max-width: 50%;
+        }
+
+        .content-item2 {
+            text-align: center;
+            max-width: 50%;
+            padding-bottom: 100px;
+        }
+
+        .content-item img {
+            max-width: 60%100;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <div class="topnav">
+        <a class="active" href="Kludging.html">Kludging</a>
+        <a href="Simulation.html">Simulation</a>
+        <a href="#Synthetic.html">Synthetic</a>
+        <a href="#Codependent">Codependent</a>
+        <a href="#Materialities">Materialities</a>
+    </div>
+
+    <header>
+        <h1>Synethetic Relationships</h1>
+        <h2>Creative Tech</h2>
+        <h3>Shirley Piotrowski & Xinxin Cui, Fall 2024</h3>
+        <h3><a href="https://miro.com/app/board/uXjVLQ3NkLI=/" target="_blank">Link to our Miro board</a></h3>
+    </header>
+
+    <div class="content-container">
+        <div class="content-item">
+            <h3>Early Ideas</h3>
+            <img src="Synthetic2.JPG" alt="Image 1" width="300">
+            <p>Early on in the process we were inspired by plants, skin care, and Nina's clammy hands</p>
+        </div>
+        <div class="content-item">
+            <h3>Concept</h3>
+            <img src="Synthetic3.JPG" alt="Image 2" width="300px">
+            <p>We decided to use a house plant as our main subject, using sensors to detect sunlight and moisture levels of the soil</p>
+        </div>
+        <div class="content-item">
+            <img src="Synthetic4.JPG" alt="Image 2" width="300px">
+            <img src="Synthetic5.JPG" alt="Image 3" width="300px">
+            <p>The first step was to get our sensors working. I got my soil sensor sensor working, and uploaded the data to Arduino IO. Uploaded it to my knob_feed because I was feeling lazy... but it worked :D</p>
+        </div>
+        <div class="content-item">
+            <img src="Synthetic6.JPG" alt="Image 3" width="300px">
+            <img src="Synthetic8.JPG" alt="Image 3" width="300px">
+            <p>Xinxin also got her data uploaded to Arduino, and we sucessfully shared each other's data (easier said than done). We also got our servo motors working... each one controlled by a different sensor's data.</p>
+        </div>
+        <div class="content-item">
+
+        </div>
+            <img src="Synthetic9.JPG" alt="Image 2" width="400px">
+            <img src="Synthetic10.jpg" alt="Image 2" width="400px">
+            <p>Arts and crafts time - building the body of our 'robot' out of paper mache</p>
+        </div>
+        <div class="content-item">
+            <video width="320" height="240" controls>
+                <source src="Synthetic11.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+            <p>Video of our first working prototype - the right arm is controlled by the dampness of the soil sensor, and the left arm is controlled by a bend sensor</p>
+        </div>
+        <div class="content-item">
+            <img src="Synthetic12.jpg" alt="Image 2" width="400px">
+            <p>We ran into a couple of bugs that took us hours to figure out... Turns out a capital letter from the wifi password was missing... that was it. BUT we made
+                a second version of our little robot, complete with 2 cute little arms.</p>
+        </div>
+        <div class="content-item">
+            <img src="ct3_arduino.jpeg" alt="Image 2" width="400px">
+            <img src="Synthetic13.jpg" alt="Image 2" width="400px">
+            <p>Final set up and diagram of our setup</p>
+        </div>
+        <div class="content-item">
+            <video width="320" height="240" controls>
+                <source src="Synthetic14.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+                <p>THE FINAL RESULT!!</p>
+            </div>
+    </div>
+
+</body>
+</html>
