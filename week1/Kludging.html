@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shirls Website</title>
+    
+    <!-- Google Font: IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text for contrast */
+            font-family: 'IBM Plex Mono', monospace; /* Updated font */
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,59 +25,60 @@
 
         /* Top Navigation Styles */
         .topnav {
-            background-color: #FFFFFF;
+            background-color: #FFFFFF; /* White navbar */
             overflow: hidden;
             width: 100%;
             position: fixed;
             top: 0;
-            height: 40px;
+            height: 50px; /* Navbar height */
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            z-index: 1000; /* Stay on top */
         }
 
         .topnav a {
-            color: #000000;
+            color: #000000; /* Black links */
             text-align: center;
-            padding: 10px 16px;
+            padding: 14px 20px;
             text-decoration: none;
             font-size: 17px;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .topnav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #f1f1f1;
+            color: #000000;
         }
 
         .topnav a.active {
-            background-color: none;
-            color: black;
+            background-color: #e0e0e0; /* Active link highlight */
+            color: #000000;
         }
 
         header {
             width: 100%;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 60px;
+            padding: 2rem 0;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            margin-top: 70px; /* Space below navbar */
         }
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
+            font-size: 2.5rem;
+            color: #FFFFFF; 
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
-        }
-
-        h3 {
-            margin-bottom: 1rem;
+        h2, h3 {
+            color: #FFFFFF;
+            margin-top: 2px; 
+            margin-bottom: 2px;
         }
 
         a {
-            color: white;
+            color: #ffb85c; 
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -81,28 +88,97 @@
         }
 
         .content-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 30px; /* Reduced from 200px to 100px */
+            width: 90%;
+            max-width: 600px; /* Set max width to 600px */
+            margin: 40px 0; /* Spacing around content */
         }
 
         .content-item {
-            text-align: center;
-            max-width: 50%;
-        }
-
-        .content-item2 {
-            text-align: center;
-            max-width: 50%;
-            padding-bottom: 100px;
+            padding: 20px;
+            background-color: #1A1A1A; /* Dark gray background for contrast */
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow */
+            margin-bottom: 20px; /* Space between content items */
+            align-items: center;
+            display: flex;
+            flex-direction: column; /* Stacks items vertically */
+            align-items: center; /* Centers items horizontally */
         }
 
         .content-item img {
-            max-width: 60%100;
+            width: 100%;
             height: auto;
-            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .center-video {
+            display: block; /* Ensures that the video behaves like a block element */
+            margin: 0 auto; /* Centers the video horizontally */
+        }
+
+
+        p {
+            color: #FFFFFF; /* White text for readability */
+            line-height: 1.6;
+        }
+
+        /* Modal container (background) */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            justify-content: center;
+            align-items: center; /* Vertically center the content */
+        }
+
+        /* Modal content (image) */
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto; /* Horizontally center the content */
+            display: block;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffb85c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .topnav a {
+                padding: 10px 12px;
+                font-size: 15px;
+            }
+
+            header {
+                padding: 1.5rem 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-container {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -112,14 +188,14 @@
     <div class="topnav">
         <a class="active" href="Kludging.html">Kludging</a>
         <a href="Simulation.html">Simulation</a>
-        <a href="#Synthetic">Synthetic</a>
-        <a href="#Codependent">Codependent</a>
-        <a href="#Materialities">Materialities</a>
+        <a href="Synthetic.html">Synthetic</a>
+        <a href="TextAsMaterial.html">Codependent</a>
+        <a href="DigitalMaterialities.html">Materialities</a>
     </div>
 
     <header>
         <h1>Kludging</h1>
-        <h2>Creative Tech, Weeks 1-3</h2>
+        <h2>Creative Tech, Weeks 13-14</h2>
         <h3>Shirley Piotrowski, Fall 2024</h3>
         <h3><a href="https://miro.com/app/board/uXjVLfUFsOw=" target="_blank">Link to my Miro board</a></h3>
     </header>
@@ -186,14 +262,42 @@
             <p>Adding a few more finishing touches in TouchDesinger - more flashing shapes & text, and more texture</p>
             <p>(image is unrelated to the work)</p>
         </div>
-    <div class="content-item2">
-        <iframe width="420" height="315"
-        src="https://www.youtube.com/watch?v=ug9dbR1XCFU">
-        </iframe>
+
+        <div class="content-item">
             <p>Here is my video of my final project</p>
-            <p>If the video doesn't load:</p> <a href="https://www.youtube.com/watch?v=ug9dbR1XCFU" target="_blank">click here for the link!</a>
+           <a href="https://www.youtube.com/watch?v=ug9dbR1XCFU" target="_blank">CLICK HERE FOR THE VIDEO!</a>
         </div>
+
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and the modal image element
+        var modalImg = document.getElementById("img01");
+
+        // Get all images in the content and add click event listeners
+        var images = document.querySelectorAll(".content-item img");
+        images.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Get the close button and add click event listener
+        var closeBtn = document.querySelector(".close");
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
