@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirls Website</title>
+    
+    <!-- Google Font: IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #000000; /* Black background */
+            color: #FFFFFF; /* White text for contrast */
+            font-family: 'IBM Plex Mono', monospace; /* Updated font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation Styles */
+        .topnav {
+            background-color: #FFFFFF; /* White navbar */
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 50px; /* Navbar height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            z-index: 1000; /* Stay on top */
+        }
+
+        .topnav a {
+            color: #000000; /* Black links */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #f1f1f1;
+            color: #000000;
+        }
+
+        .topnav a.active {
+            background-color: #e0e0e0; /* Active link highlight */
+            color: #000000;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 2rem 0;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            margin-top: 70px; /* Space below navbar */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #FFFFFF; 
+        }
+
+        h2, h3 {
+            color: #FFFFFF;
+            margin-top: 2px; 
+            margin-bottom: 2px;
+        }
+
+        a {
+            color: #ffb85c; 
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffb85c;
+        }
+
+        .content-container {
+            width: 90%;
+            max-width: 600px; /* Set max width to 600px */
+            margin: 40px 0; /* Spacing around content */
+        }
+
+        .content-item {
+            padding: 20px;
+            background-color: #1A1A1A; /* Dark gray background for contrast */
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow */
+            margin-bottom: 20px; /* Space between content items */
+            align-items: center;
+            display: flex;
+            flex-direction: column; /* Stacks items vertically */
+            align-items: center; /* Centers items horizontally */
+        }
+
+        .content-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .center-video {
+            display: block; /* Ensures that the video behaves like a block element */
+            margin: 0 auto; /* Centers the video horizontally */
+        }
+
+
+        p {
+            color: #FFFFFF; /* White text for readability */
+            line-height: 1.6;
+        }
+
+        /* Modal container (background) */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            justify-content: center;
+            align-items: center; /* Vertically center the content */
+        }
+
+        /* Modal content (image) */
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto; /* Horizontally center the content */
+            display: block;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffb85c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .topnav a {
+                padding: 10px 12px;
+                font-size: 15px;
+            }
+
+            header {
+                padding: 1.5rem 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <div class="topnav">
+        <a class="active" href="Kludging.html">Kludging</a>
+        <a href="Simulation.html">Simulation</a>
+        <a href="Synthetic.html">Synthetic</a>
+        <a href="TextAsMaterial.html">Codependent</a>
+        <a href="#Materialities">Materialities</a>
+    </div>
+
+    <header>
+        <h1>Digital Materialities</h1>
+        <h2>Creative Tech, Weeks 13-14</h2>
+        <h3>Shirley Piotrowski, Fall 2024</h3>
+        <h3>Here are my amazing shader creations</h3>
+        <h3>The last one is the best :D</h3>
+    </header>
+
+    <div class="content-container">
+        <div class="content-item">
+            <img src="Shader1.gif" alt="">
+            
+        </div>
+        <div class="content-item">
+            <img src="Shader2.gif" alt="">
+
+        </div>
+        <div class="content-item">
+            <img src="Shader3.gif" alt="">
+            <p>First I was just messing around trying to find something interesting</p>
+           
+        </div>
+        <div class="content-item">
+            <img src="Shader4.gif" alt="">
+           <p>Then I discovered this wave pattern and decided to just run with it and make a bunch of iterations of this one</p>
+
+        <div class="content-item">
+            <img src="Shader5.gif" alt="">
+
+            
+        </div>
+        <div class="content-item">
+            <img src="Shader6.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader7.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader8.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader9.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader10.gif" alt="">
+            <p>(this one is my fav)</p>
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader11.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader12.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shaders13.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader14.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="Shader16.gif" alt="">
+           
+        </div>
+
+        <div class="content-item">
+            <img src="RichardLuvsShaders.gif" alt="">
+            <p>Here is my cat Richard dj'ing at a local club. I let him use my shaders as a backdrop.</p>
+           
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and the modal image element
+        var modalImg = document.getElementById("img01");
+
+        // Get all images in the content and add click event listeners
+        var images = document.querySelectorAll(".content-item img");
+        images.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Get the close button and add click event listener
+        var closeBtn = document.querySelector(".close");
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
