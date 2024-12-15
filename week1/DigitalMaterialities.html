@@ -22,7 +22,7 @@
             align-items: center;
             min-height: 100vh;
         }
-
+    
         /* Top Navigation Styles */
         .topnav {
             background-color: #FFFFFF; /* White navbar */
@@ -37,7 +37,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
             z-index: 1000; /* Stay on top */
         }
-
+    
         .topnav a {
             color: #000000; /* Black links */
             text-align: center;
@@ -46,17 +46,17 @@
             font-size: 17px;
             transition: background-color 0.3s, color 0.3s;
         }
-
+    
         .topnav a:hover {
             background-color: #f1f1f1;
             color: #000000;
         }
-
+    
         .topnav a.active {
             background-color: #e0e0e0; /* Active link highlight */
             color: #000000;
         }
-
+    
         header {
             width: 100%;
             text-align: center;
@@ -65,62 +65,63 @@
             margin-bottom: 5px;
             margin-top: 70px; /* Space below navbar */
         }
-
+    
         h1 {
             font-size: 2.5rem;
             color: #FFFFFF; 
         }
-
+    
         h2, h3 {
             color: #FFFFFF;
             margin-top: 2px; 
             margin-bottom: 2px;
         }
-
+    
         a {
             color: #ffb85c; 
             text-decoration: none;
             transition: color 0.3s;
         }
-
+    
         a:hover {
             color: #ffb85c;
         }
-
+    
         .content-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 20px; /* Space between items */
             width: 90%;
-            max-width: 600px; /* Set max width to 600px */
+            max-width: 1200px; /* Maximum width for the grid */
             margin: 40px 0; /* Spacing around content */
         }
-
+    
         .content-item {
             padding: 20px;
             background-color: #1A1A1A; /* Dark gray background for contrast */
             box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Subtle shadow */
-            margin-bottom: 20px; /* Space between content items */
             align-items: center;
             display: flex;
             flex-direction: column; /* Stacks items vertically */
             align-items: center; /* Centers items horizontally */
         }
-
+    
         .content-item img {
             width: 100%;
             height: auto;
             cursor: pointer;
         }
-
+    
         .center-video {
             display: block; /* Ensures that the video behaves like a block element */
             margin: 0 auto; /* Centers the video horizontally */
         }
-
-
+    
         p {
             color: #FFFFFF; /* White text for readability */
             line-height: 1.6;
         }
-
+    
         /* Modal container (background) */
         .modal {
             display: none; 
@@ -134,7 +135,7 @@
             justify-content: center;
             align-items: center; /* Vertically center the content */
         }
-
+    
         /* Modal content (image) */
         .modal-content {
             max-width: 90%;
@@ -142,7 +143,7 @@
             margin: auto; /* Horizontally center the content */
             display: block;
         }
-
+    
         /* Close button */
         .close {
             position: absolute;
@@ -154,33 +155,34 @@
             transition: 0.3s;
             cursor: pointer;
         }
-
+    
         .close:hover,
         .close:focus {
             color: #ffb85c;
             text-decoration: none;
             cursor: pointer;
         }
-
+    
         @media (max-width: 600px) {
+            .content-container {
+                grid-template-columns: 1fr; /* Single column for small screens */
+            }
+    
             .topnav a {
                 padding: 10px 12px;
                 font-size: 15px;
             }
-
+    
             header {
                 padding: 1.5rem 0;
             }
-
+    
             h1 {
                 font-size: 2.5rem;
             }
-
-            .content-container {
-                width: 100%;
-            }
         }
     </style>
+    
 </head>
 <body>
 
@@ -204,82 +206,383 @@
     <div class="content-container">
         <div class="content-item">
             <img src="Shader1.gif" alt="">
+            <p>The first 3 are just messing around trying to find something I like that I could make iterations of.</p>
             
         </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+  
+                    vec2 uv = fragCoord / iResolution.xy;
+                
+
+                    vec3 col = vec3(
+                        0.5 + 0.5 * sin(uv.x * 10.0 + iTime),
+                        0.5 + 0.5 * sin(uv.y * 10.0 + iTime),
+                        0.5 + 0.5 * sin((uv.x + uv.y) * 10.0 + iTime)
+                    );
+                
+
+                    fragColor = vec4(col, 1.0);
+                }</p>
+
+        </div>
+
         <div class="content-item">
             <img src="Shader2.gif" alt="">
 
         </div>
+
         <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5; 
+                    uv.x *= iResolution.x / iResolution.y; 
+                
+                    float angle = atan(uv.y, uv.x);
+                    float radius = length(uv);
+                
+                    float tunnel = sin(10.0 * radius - iTime) * 0.5 + 0.5;
+                
+                    vec3 col = vec3(tunnel, angle / 3.14159, radius);
+                
+                    fragColor = vec4(col, 1.0);
+                }</p>
+         </div>
+
+         <div class="content-item">
             <img src="Shader3.gif" alt="">
-            <p>First I was just messing around trying to find something interesting</p>
-           
         </div>
+
+        <div class="content-item">
+           <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+            {
+                vec2 uv = fragCoord / iResolution.xy;
+            
+                vec3 col1 = vec3(uv.x, 1.0 - uv.y, sin(iTime));
+                vec3 col2 = vec3(cos(iTime), uv.y, 1.0 - uv.x);
+            
+                // Blend the colors
+                vec3 col = mix(col1, col2, 0.5 + 0.5 * sin(iTime));
+            
+                fragColor = vec4(col, 1.0);
+            }
+            </p>
+        </div>
+
         <div class="content-item">
             <img src="Shader4.gif" alt="">
-           <p>Then I discovered this wave pattern and decided to just run with it and make a bunch of iterations of this one</p>
+            <p>I really like this kind of ripple effect, very nice and hypnotizing</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    // Ripple 
+                    float ripple = sin(length(uv) * 20.0 - iTime * 5.0);
+                
+                    vec3 col = vec3(0.5 + 0.5 * ripple);
+                
+                    fragColor = vec4(col, 1.0);
+                }</p>
+        </div>
 
         <div class="content-item">
             <img src="Shader5.gif" alt="">
-
-            
+            <p>Added some colors</p>
         </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    float ripple = sin(length(uv) * 20.0 - iTime * 5.0);
+                
+                    vec3 col = vec3(
+                        0.5 + 0.5 * ripple,         // Red
+                        0.5 + 0.5 * sin(ripple),   // Green
+                        0.5 + 0.5 * cos(ripple)    // Blue
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>
+        </div>
+
         <div class="content-item">
             <img src="Shader6.gif" alt="">
-           
+            <p>Mixing things up slightly with an offset</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * 20.0 - iTime * 5.0);
+                    ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+                
+                    vec3 col = vec3(0.5 + 0.5 * ripple);
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>
         </div>
 
         <div class="content-item">
             <img src="Shader7.gif" alt="">
-           
+            <p>Colored offset woohoo</p>
+        </div>
+
+        <div class="content-item">
+         <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+            {
+                vec2 uv = fragCoord / iResolution.xy;
+                uv -= 0.5;
+            
+                float distance = length(uv);
+                float ripple = sin(distance * 20.0 - iTime * 5.0);
+                ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+            
+                vec3 col = vec3(0.5 + 0.5 * ripple);
+            
+                fragColor = vec4(col, 1.0);
+            }</p>
         </div>
 
         <div class="content-item">
             <img src="Shader8.gif" alt="">
-           
+            <p>Same thing but repeating on a grid</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+         {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv = fract(uv * 5.0) - 0.5; // Create a grid structure
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * 20.0 - iTime * 5.0);
+                    ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+                
+                    vec3 col = vec3(
+                        1.0,
+                        0.8 + 0.5 * ripple,
+                        0.6 + 0.4 * abs(ripple)
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>
         </div>
 
         <div class="content-item">
             <img src="Shader9.gif" alt="">
-           
+            <p>Messing around with more color variations to get a glow effect</p>
+        </div>
+        
+        <div class="content-item">
+           <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+            {
+                vec2 uv = fragCoord / iResolution.xy;
+                uv -= 0.5;
+            
+                float distance = length(uv);
+                float ripple = sin(distance * 20.0 - iTime * 5.0);
+                ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+            
+                float glow = exp(-distance * 5.0); // Add a glow that fades with distance
+            
+                vec3 col = vec3(
+                    1.0 * glow,
+                    (0.8 + 0.5 * ripple) * glow,
+                    (0.6 + 0.4 * abs(ripple)) * glow
+                );
+            
+                fragColor = vec4(col, 1.0);
+            }
+            </p>
         </div>
 
         <div class="content-item">
             <img src="Shader10.gif" alt="">
-            <p>(this one is my fav)</p>
-           
+            <p>This one is my fav (animating the color)</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * 20.0 - iTime * 5.0);
+                    ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+                
+                    vec3 col = vec3(
+                        0.5 + 0.5 * sin(iTime + ripple),
+                        0.5 + 0.5 * sin(iTime * 1.2 + ripple),
+                        0.5 + 0.5 * sin(iTime * 1.5 + ripple)
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>
         </div>
 
         <div class="content-item">
             <img src="Shader11.gif" alt="">
-           
+            <p>This one was a mistake but I think it looks cool. Was trying to get a wavy effect</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * (20.0 + 10.0 * iTime) - iTime * 5.0);
+                    ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+                
+                    vec3 col = vec3(
+                        1.0,
+                        0.8 + 0.5 * ripple,
+                        0.6 + 0.4 * abs(ripple)
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }</p>>
         </div>
 
         <div class="content-item">
             <img src="Shader12.gif" alt="">
-           
+            <p>Successful wavy effect</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    // Warp UVs
+                    uv.x += 0.1 * sin(uv.y * 10.0 + iTime);
+                    uv.y += 0.1 * sin(uv.x * 10.0 - iTime);
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * 20.0 - iTime * 5.0);
+                    ripple += 0.5 * sin(uv.x * 10.0 + iTime);
+                
+                    vec3 col = vec3(
+                        1.0,
+                        0.8 + 0.5 * ripple,
+                        0.6 + 0.4 * abs(ripple)
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>>
         </div>
 
         <div class="content-item">
             <img src="Shaders13.gif" alt="">
-           
+            <p>Added some lines on top</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                
+                    float distance = length(uv);
+                    float ripple = sin(distance * 20.0 - iTime * 5.0);
+                
+                    float flame = sin(uv.y * 20.0 + iTime * 10.0) * 0.5 + 0.5;
+                
+                    vec3 col = vec3(
+                        1.0,
+                        0.5 + 0.5 * flame,
+                        0.2 + 0.3 * ripple
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>>
         </div>
 
         <div class="content-item">
             <img src="Shader14.gif" alt="">
-           
+            <p>Went back to the normal ripples to make a kaleidascope effect</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy;
+                    uv -= 0.5;
+                    uv.x *= iResolution.x / iResolution.y; // Maintain aspect ratio
+                
+                    float symmetry = 6.0;
+                    float angle = atan(uv.y, uv.x);
+                    angle = mod(angle, 3.14159 / symmetry) - (3.14159 / symmetry / 2.0);
+                    float distance = length(uv);
+                
+                    float ripple = sin(distance * 20.0 - iTime * 5.0 + angle * symmetry);
+                
+                    vec3 col = vec3(
+                        1.0,
+                        0.8 + 0.5 * ripple,
+                        0.6 + 0.4 * abs(ripple)
+                    );
+                
+                    fragColor = vec4(col, 1.0);
+                }
+                </p>
         </div>
 
         <div class="content-item">
             <img src="Shader16.gif" alt="">
-           
+            <p>Then I made a strobe because my cat needed it for his dj set</p>
+        </div>
+
+        <div class="content-item">
+            <p>void mainImage(out vec4 fragColor, in vec2 fragCoord)
+                {
+                    vec2 uv = fragCoord / iResolution.xy; // Normalize coordinates
+                
+                
+                    float strobeFrequency = 10.0; // Adjust for faster or slower flashing
+                    float strobe = step(0.5, fract(iTime * strobeFrequency));
+                
+                    vec3 color = vec3(strobe);
+                
+                    fragColor = vec4(color, 1.0);
+                }
+                </p>
         </div>
 
         <div class="content-item">
             <img src="RichardLuvsShaders.gif" alt="">
-            <p>Here is my cat Richard dj'ing at a local club. I let him use my shaders as a backdrop.</p>
-           
         </div>
+
+        <div class="content-item">
+            <p>Here is my cat Richard DJ'ing at a local club. Let him use my shaders as visuals and the crowd loved it.</p>
+        </div>
+
+
+
+
     </div>
 
     <!-- The Modal -->
